@@ -120,7 +120,7 @@ contract TestTokenPaymasterV06 is Test {
             "",
             address(paymaster),
             50000,
-            costOfPostop + 20000 // == 60000 is pass value
+            costOfPostop + 1
         );
 
         UserOperation[] memory ops = new UserOperation[](1);
@@ -139,7 +139,7 @@ contract TestTokenPaymasterV06 is Test {
             "",
             address(paymaster),
             50000,
-            costOfPostop * 10
+            costOfPostop + 1
         );
         ops[0] = userOp2;
         uint256 gas1 = paymaster.balanceOf(address(userAccount));
@@ -156,7 +156,7 @@ contract TestTokenPaymasterV06 is Test {
             "",
             address(paymaster),
             5000000, // *= 100 from userOp 2
-            costOfPostop * 10
+            costOfPostop + 1
         );
 
         ops[0] = userOp3;
